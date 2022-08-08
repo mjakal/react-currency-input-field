@@ -12,14 +12,15 @@
   "homepage": "https://github.com/cchanxzy/react-currency-input-field",
   "scripts": {
     "build": "rm -rf dist && tsc && rollup -c",
+    "install": "npm run build",
     "start": "parcel src/examples/index.html",
     "test": "jest --coverage --roots ./src",
     "test-ci": "cross-env NODE_ICU_DATA=node_modules/full-icu jest --coverage",
     "typecheck": "tsc && tsc --project tsconfig.test.json",
     "lint": "eslint src --max-warnings=0",
     "gh-predeploy": "parcel build src/examples/index.html --dist-dir demo/examples --public-url ./",
-    "gh-deploy": "yarn gh-predeploy && gh-pages -d demo/examples",
-    "ci": "yarn && yarn build",
+    "gh-deploy": "npm run gh-predeploy && gh-pages -d demo/examples",
+    "ci": "npm install && npm run build",
     "codecov": "codecov",
     "semantic-release": "semantic-release"
   },
